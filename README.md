@@ -1,1 +1,1 @@
-# Clock with hour : minute : second
+# Clock with hour : minute : second format
