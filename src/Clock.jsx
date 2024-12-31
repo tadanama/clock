@@ -16,10 +16,19 @@ function Clock() {
 		};
 	}, []);
 
-	// Format the time
+	// Display time state in readable format 
+	function formatTime() {
+		const hours = time.getHours();
+		const minutes = time.getMinutes();
+		const seconds = time.getSeconds();
+		const amOrPM = hours > 12 ? "PM" : "AM";
+
+		return `${hours} : ${minutes} : ${seconds} ${amOrPM}`;
+	}
+
 	// Add zero to the front if the number is less than 10
 
-	return <h1>Hi</h1>;
+	return <h1>{formatTime()}</h1>;
 }
 
 export default Clock;
