@@ -9,6 +9,11 @@ function Clock() {
 		const intervalId = setInterval(() => {
 			setTime(new Date());
 		}, 1000);
+
+		// Remove setInterval timer when component unmounts - TO PREVENT UNINTENDED BEHAVIOUR
+		return () => {
+			clearInterval(intervalId);
+		};
 	}, []);
 
 	// Format the time
