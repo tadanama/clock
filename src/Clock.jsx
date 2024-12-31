@@ -16,17 +16,22 @@ function Clock() {
 		};
 	}, []);
 
-	// Display time state in readable format 
+	// Display time state in readable format
 	function formatTime() {
 		const hours = time.getHours();
 		const minutes = time.getMinutes();
 		const seconds = time.getSeconds();
 		const amOrPM = hours > 12 ? "PM" : "AM";
 
-		return `${hours} : ${minutes} : ${seconds} ${amOrPM}`;
+		return `${prependZero(hours)} : ${prependZero(minutes)} : ${prependZero(
+			seconds
+		)} ${amOrPM}`;
 	}
 
 	// Add zero to the front if the number is less than 10
+	function prependZero(number) {
+		return number < 10 ? "0" + number : number;
+	}
 
 	return <h1>{formatTime()}</h1>;
 }
